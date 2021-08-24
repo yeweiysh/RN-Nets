@@ -14,7 +14,7 @@ def RNNETS_MLP(inputs, output_dim, norm_mat, activation, in_drop=0.0):
         if in_drop != 0.0:
             seq_fts = tf.nn.dropout(seq_fts, 1.0 - in_drop)
 
-        hops = 10
+        hops = 20
         seq_fts = tf.squeeze(seq_fts, axis=0)
         n, m = seq_fts.get_shape()
         n = int(n)
@@ -32,8 +32,7 @@ def RNNETS_MLP(inputs, output_dim, norm_mat, activation, in_drop=0.0):
         H = tf.reshape(H, [hops, n*output_dim])
         H = tf.transpose(H)
         H = tf.expand_dims(H, axis=0)
-        H = tf.layers.conv1d(H, 32, 1, use_bias=False, activation="elu")
-        H = tf.layers.conv1d(H, 16, 1, use_bias=False, activation="elu")
+        H = tf.layers.conv1d(H, 32, 1, use_bias=False, activation="relu")
         H = tf.layers.conv1d(H, 1, 1, use_bias=False)
         H = tf.transpose(H)
         vals = tf.reshape(H, [1, n, output_dim])
