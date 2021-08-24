@@ -1,10 +1,10 @@
-# KGCN
+# RN-Nets
 
 ## Overview
-Here we provide the implementation of KGCN (Krylov Graph Convolutional Networks) in TensorFlow. The repository is organised as follows:
+Here we provide the implementation of RN-Nets in TensorFlow. The repository is organised as follows:
 - `data/` contains datasets Cora, Citeseer, and Pubmed;
 - `new_data/` contains datasets Chameleon and Squirrel;
-- `models/` contains the implementation of the KGCN (`kgcn.py`);
+- `models/` contains the implementation of the RN-Nets (`rnnets.py`);
 - `utils/` contains:
     * an implementation of the aggregation of each matrix in the Krylov tensor by a one-dim CNN (`layers.py`);
     * preprocessing subroutines (`process.py`);
