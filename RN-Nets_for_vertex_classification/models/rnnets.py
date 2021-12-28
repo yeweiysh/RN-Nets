@@ -16,6 +16,14 @@ class RNNETS(BaseRNNETS):
         #     output_dim=output_dim, activation=activation,
         #     in_drop=ffd_drop)
         
+        # h_1 = layers.RNNETS_PR(inputs, norm_mat=norm_mat,
+        #     output_dim=output_dim, activation=activation,
+        #     in_drop=ffd_drop)
+        
+        # h_1 = layers.RNNETS_HK(inputs, norm_mat=norm_mat,
+        #     output_dim=output_dim, activation=activation,
+        #     in_drop=ffd_drop)
+        
         logits = layers.linear_layer(h_1,
             output_dim=nb_classes, activation=lambda x: x,
             in_drop=ffd_drop)
