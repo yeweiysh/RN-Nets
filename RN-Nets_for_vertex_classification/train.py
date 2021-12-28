@@ -3,10 +3,13 @@ import os
 os.environ["CUDA_VISIBLE_DEVICES"] = "1"
 import types
 import numpy as np
-import tensorflow as tf
-if type(tf.contrib) != types.ModuleType:  # if it is LazyLoader
-    tf.contrib._warning = None
-if type(tf.contrib) != type(tf): tf.contrib._warning = None
+#import tensorflow as tf
+#if type(tf.contrib) != types.ModuleType:  # if it is LazyLoader
+#    tf.contrib._warning = None
+#if type(tf.contrib) != type(tf): tf.contrib._warning = None
+
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 
 from models import RNNETS
 from utils import process
