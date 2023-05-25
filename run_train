@@ -1,0 +1,18 @@
+#!/bin/bash
+
+for run in {1..30}
+do
+    echo "Iteration: $run"
+
+    python train.py \
+            --dataset cora \
+            --checkpt_file pre_trained/cora/cora_mod.ckpt \
+            --train_size 1 \
+            --validation_size 500 \
+            --dropout 0.6 \
+            --seed $run \
+	    >> rnnets_mlp_accuracy_cora_1.txt
+done
+
+python calculate_average_accuracy.py \
+        --file_name rnnets_mlp_accuracy_cora_1.txt \
